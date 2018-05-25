@@ -20,7 +20,7 @@ const normalizeComponents = (components, normalizedComponents = []) => {
   return normalizedComponents
 }
 
-export default {
+const componentRegister = {
   install(Vue) {
     // Global register
     const registerComponent = Vue.component
@@ -46,3 +46,10 @@ export default {
     })
   }
 }
+
+/* istanbul ignore if */
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(componentRegister)
+}
+
+export default componentRegister

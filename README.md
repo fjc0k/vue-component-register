@@ -33,7 +33,12 @@ yarn add vue-component-register
 npm i vue-component-register
 ```
 
-CDN: [jsDelivr](//www.jsdelivr.com/package/npm/vue-component-register) | [UNPKG](//unpkg.com/vue-component-register/) (Avaliable as `window.VueComponentRegister`)
+### CDN
+[jsDelivr](//www.jsdelivr.com/package/npm/vue-component-register) | [UNPKG](//unpkg.com/vue-component-register/) 
+
+Avaliable as `window.VueComponentRegister`.
+
+`VueComponentRegister` will automatically calls `Vue.use()` if `Vue` is available as a global variable.
 
 ## Usage
 
