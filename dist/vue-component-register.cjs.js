@@ -1,5 +1,5 @@
 /*!
- * vue-component-register v0.0.1
+ * vue-component-register v1.0.0
  * (c) 2018-present fjc0k <fjc0kb@gmail.com> (https://github.com/fjc0k)
  * Released under the MIT License.
  */
@@ -38,18 +38,22 @@ var normalizeComponents = function normalizeComponents(components, normalizedCom
 };
 
 var index = {
-  install: function install(Vue, components) {
-    if (components === void 0) {
-      components = {};
-    }
-
+  install: function install(Vue) {
     // Global register
-    components = normalizeComponents(components);
-    components.forEach(function (_ref) {
-      var componentTag = _ref[0],
-          component = _ref[1];
-      Vue.component(componentTag, component);
-    }); // Component-level register
+    var registerComponent = Vue.component;
+
+    Vue.component = function () {
+      if (arguments[1]) {
+        extractSubComponents(arguments[0], arguments[1]).forEach(function (_ref) {
+          var componentTag = _ref[0],
+              component = _ref[1];
+          registerComponent.apply(Vue, [componentTag, component]);
+        });
+      }
+
+      return registerComponent.apply(Vue, arguments);
+    }; // Component-level register
+
 
     Vue.mixin({
       beforeCreate: function beforeCreate() {

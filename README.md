@@ -2,8 +2,8 @@
 
 [![Travis](https://travis-ci.org/fjc0k/vue-component-register.svg?branch=master)](https://travis-ci.org/fjc0k/vue-component-register)
 [![codecov](https://codecov.io/gh/fjc0k/vue-component-register/branch/master/graph/badge.svg)](https://codecov.io/gh/fjc0k/vue-component-register)
-[![minified size](https://img.shields.io/badge/minified%20size-893%20B-blue.svg?MIN)](https://github.com/fjc0k/vue-component-register/blob/master/dist/vue-component-register.min.js)
-[![minzipped size](https://img.shields.io/badge/minzipped%20size-488%20B-blue.svg?MZIP)](https://github.com/fjc0k/vue-component-register/blob/master/dist/vue-component-register.min.js)
+[![minified size](https://img.shields.io/badge/minified%20size-961%20B-blue.svg?MIN)](https://github.com/fjc0k/vue-component-register/blob/master/dist/vue-component-register.min.js)
+[![minzipped size](https://img.shields.io/badge/minzipped%20size-524%20B-blue.svg?MZIP)](https://github.com/fjc0k/vue-component-register/blob/master/dist/vue-component-register.min.js)
 
 Allow components to register their subComponents.
 
