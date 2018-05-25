@@ -3,10 +3,9 @@ import ComponentRegister from '../src'
 import { Button, List, Step } from './components'
 
 test('everything goes well', () => {
-  Vue.use(ComponentRegister, {
-    [Button.name]: Button,
-    [List.name]: List
-  })
+  Vue.use(ComponentRegister)
+  Vue.component(Button.name, Button)
+  Vue.component(List.name, List)
   const vm = new Vue({
     template: `<div>
       <test-list></test-list>

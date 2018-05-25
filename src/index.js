@@ -21,12 +21,17 @@ const normalizeComponents = (components, normalizedComponents = []) => {
 }
 
 export default {
-  install(Vue, components = {}) {
+  install(Vue) {
     // Global register
-    components = normalizeComponents(components)
-    components.forEach(([componentTag, component]) => {
-      Vue.component(componentTag, component)
-    })
+    const registerComponent = Vue.component
+    Vue.component = function () {
+      if (arguments[1]) {
+        extractSubComponents(arguments[0], arguments[1]).forEach(([componentTag, component]) => {
+          registerComponent.apply(Vue, [componentTag, component])
+        })
+      }
+      return registerComponent.apply(Vue, arguments)
+    }
 
     // Component-level register
     Vue.mixin({

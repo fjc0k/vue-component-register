@@ -41,17 +41,13 @@ CDN: [jsDelivr](//www.jsdelivr.com/package/npm/vue-component-register) | [UNPKG]
 /* main.js */
 import Vue from 'vue'
 import ComponentRegister from 'vue-component-register'
-import List from './components' // Include subComponents: ListItem
 import Button from './components' // No subComponents
+import List from './components' // Include subComponents: ListItem
 
-Vue.use(
-  ComponentRegister,
-  // Global register
-  {
-    [List.name]: List,
-    [Button.name]: Button
-  }
-)
+Vue.use(ComponentRegister)
+
+Vue.component(Button.name, Button)
+Vue.component(List.name, List)
 
 
 /* App.vue */
@@ -64,7 +60,9 @@ export default {
   render() {
     return <step>
       <step-item>
-        first step
+        <list>
+          <list-item>first step</list-item>
+        </list>
       </step-item>
     </step>
   }
