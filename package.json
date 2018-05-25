@@ -1,0 +1,86 @@
+{
+  "name": "vue-component-register",
+  "version": "0.0.1",
+  "description": "Allow components to register their subComponents.",
+  "license": "MIT",
+  "main": "dist/vue-component-register.cjs.js",
+  "module": "dist/vue-component-register.es.js",
+  "unpkg": "dist/vue-component-register.min.js",
+  "jsdelivr": "dist/vue-component-register.min.js",
+  "homepage": "https://github.com/fjc0k/vue-component-register",
+  "author": {
+    "name": "fjc0k",
+    "email": "fjc0kb@gmail.com",
+    "url": "https://github.com/fjc0k"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fjc0k/vue-component-register.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fjc0k/vue-component-register/issues"
+  },
+  "keywords": [
+    "vue",
+    "component",
+    "register"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "bdr",
+    "release": "standard-version -a",
+    "postrelease": "git push --follow-tags origin master && npm publish"
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "yarn build && git add -A"
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "@fir-ui/fir"
+  },
+  "eslintIgnore": [
+    "dist"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@bdr/bdr"
+      ]
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": ["<rootDir>/src/**/*.js"]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.44",
+    "@fir-ui/eslint-config-fir": "^0.3.2",
+    "@vue/test-utils": "^1.0.0-beta.16",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.4.3",
+    "bdr": "^1.3.4",
+    "codecov": "^3.0.0",
+    "eslint": "^4.19.1",
+    "husky": "^1.0.0-rc.4",
+    "jest": "^22.4.3",
+    "lint-staged": "^7.1.0",
+    "standard-version": "^4.3.0",
+    "vue": "^2.5.16",
+    "vue-template-compiler": "^2.5.16"
+  }
+}
