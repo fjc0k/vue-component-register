@@ -1,5 +1,5 @@
 /*!
- * vue-component-register v1.0.0
+ * vue-component-register v1.1.0
  * (c) 2018-present fjc0k <fjc0kb@gmail.com> (https://github.com/fjc0k)
  * Released under the MIT License.
  */
@@ -35,7 +35,7 @@ var normalizeComponents = function normalizeComponents(components, normalizedCom
   return normalizedComponents;
 };
 
-var index = {
+var componentRegister = {
   install: function install(Vue) {
     // Global register
     var registerComponent = Vue.component;
@@ -68,5 +68,10 @@ var index = {
     });
   }
 };
+/* istanbul ignore if */
 
-export default index;
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(componentRegister);
+}
+
+export default componentRegister;

@@ -1,6 +1,6 @@
 {
   "name": "vue-component-register",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Allow components to register their subComponents.",
   "license": "MIT",
   "main": "dist/vue-component-register.cjs.js",
